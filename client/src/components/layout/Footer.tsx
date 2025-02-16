@@ -11,7 +11,7 @@ export default function Footer() {
               Professional counselling services in London, providing support and guidance for your mental well-being.
             </p>
           </div>
-
+          
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="space-y-2">
               <p className="flex items-center text-gray-600">
                 <Phone className="w-4 h-4 mr-2" />
-                +44 20 1234 5678
+                +44 7554 000 655
               </p>
               <p className="flex items-center text-gray-600">
                 <Mail className="w-4 h-4 mr-2" />
@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t pt-8 text-center text-gray-600">
-          <p>&copy; {new Date().getFullYear()} London Counselling. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Therapy with Shohid. All rights reserved.</p>
         </div>
       </div>
     </footer>
