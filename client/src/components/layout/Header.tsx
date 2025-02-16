@@ -18,7 +18,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/">
           <a className="text-2xl font-semibold text-primary">
-            London Counselling
+            Therapy with Shohid
           </a>
         </Link>
 

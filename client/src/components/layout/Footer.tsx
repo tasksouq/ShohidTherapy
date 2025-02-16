@@ -6,12 +6,12 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-semibold text-xl mb-4">London Counselling</h3>
+            <h3 className="font-semibold text-xl mb-4">Therapy with Shohid</h3>
             <p className="text-gray-600">
               Professional counselling services in London, providing support and guidance for your mental well-being.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -30,7 +30,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center text-gray-600">
                 <Mail className="w-4 h-4 mr-2" />
-                info@londoncounselling.com
+                Shohid@gmail.com
               </p>
             </div>
           </div>

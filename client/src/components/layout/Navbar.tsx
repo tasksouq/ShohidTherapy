@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <a href="#" className="font-playfair text-xl font-semibold text-text">
-              London Counselling
+              Therapy with Shohid
             </a>
           </div>
 
