@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, Shield, Award } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   return (
@@ -10,32 +11,73 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-          <p className="text-gray-600 text-lg">
-            With over 15 years of experience, we provide compassionate counselling services
-            in a safe and confidential environment. Our team of accredited therapists
-            specializes in various therapeutic approaches including CBT and person-centered therapy.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">About Me</h2>
+
+          <div className="prose prose-lg max-w-none">
+            <p className="mb-6">
+              Hi there, I'm Shohid. Are you feeling overwhelmed, lost, or simply seeking to understand yourself better? 
+              I'm an integrative counsellor dedicated to helping people navigate life's challenges and unlock their full potential.
+            </p>
+
+            <p className="mb-6">
+              I offer a compassionate and supportive therapeutic relationship built on trust and understanding. 
+              My approach is integrative, meaning I draw from a range of evidence-based therapies, including 
+              Person-Centred, Gestalt, CBT, and Transactional Analysis, to create a personalised approach for each client.
+            </p>
+
+            <p className="mb-6">
+              I have for over two decades, worked with vulnerable children and adults, gaining valuable insight 
+              into the diverse challenges people encounter. My own personal experience with the positive impact 
+              of counselling inspired me to train as a therapist.
+            </p>
+
+            <p className="mb-6">
+              I'm a registered member of the BACP, working within their ethical framework. I believe in the 
+              inherent capacity for self-healing and growth, and I'm here to support you on your journey in 
+              a safe, non-judgmental space.
+            </p>
+
+            <p className="mb-8">
+              Our first step is an assessment session, where you can discuss what's troubling you, I can 
+              outline my approach, and we can explore whether we're a good fit to work together.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-4">Training, qualifications & experience</h3>
+            <div className="prose prose-lg max-w-none">
+              <p className="mb-4">
+                I am an honorary counsellor with Step Forward and Headstrong. I am a BACP registered 
+                counsellor with a CPCAB Level 4 Diploma in Therapeutic Counselling (and I am currently 
+                completing the CPCAB Level 5 in Psychotherapeutic Counselling).
+              </p>
+
+              <p>
+                I have 20 years' experience working with vulnerable children and adults, including roles 
+                in youth justice, running a youth club in Botswana, and family support.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {[
             {
               icon: Heart,
-              title: "Experienced & Accredited",
-              description: "Our team consists of highly qualified therapists with years of experience.",
+              title: "Compassionate Care",
+              description: "Creating a safe, supportive space for your healing journey.",
             },
             {
               icon: Shield,
-              title: "Safe & Confidential",
-              description: "Your privacy and comfort are our top priorities in every session.",
+              title: "BACP Registered",
+              description: "Working within ethical frameworks to ensure professional care.",
             },
             {
               icon: Award,
-              title: "Personalized Approach",
-              description: "We tailor our therapeutic methods to meet your individual needs.",
+              title: "Experienced Professional",
+              description: "Over 20 years of experience working with diverse clients.",
             },
           ].map((item, index) => (
             <motion.div
@@ -44,13 +86,16 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="text-center p-6"
             >
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <item.icon className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-gray-600">{item.description}</p>
+              <Card className="h-full hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="inline-block p-4 bg-sage-50 rounded-full mb-4">
+                    <item.icon className="w-8 h-8 text-sage-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
