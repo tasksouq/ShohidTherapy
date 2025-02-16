@@ -4,13 +4,32 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   useEffect(() => {
+    const heroSection = document.getElementById('hero');
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (heroSection) {
+      observer.observe(heroSection);
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (heroSection) {
+        observer.unobserve(heroSection);
+      }
+    };
   }, []);
 
   const menuItems = [
@@ -45,9 +64,14 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-primary hover:bg-primary-dark text-text px-6 py-2 rounded-lg transition-colors duration-200 font-inter">
-                Book Now
-              </button>
+              {!isHeroVisible && (
+                <button 
+                  onClick={() => window.open('https://calendly.com/shohid-wpkt/30min', '_blank')}
+                  className="bg-primary hover:bg-primary-dark text-text px-6 py-2 rounded-lg transition-colors duration-200 font-inter"
+                >
+                  Book Consultation
+                </button>
+              )}
             </div>
           </div>
 
@@ -76,9 +100,14 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <button className="bg-primary hover:bg-primary-dark text-text px-6 py-2 rounded-lg transition-colors duration-200 font-inter mx-4">
-                Book Now
-              </button>
+              {!isHeroVisible && (
+                <button 
+                  onClick={() => window.open('https://calendly.com/shohid-wpkt/30min', '_blank')}
+                  className="bg-primary hover:bg-primary-dark text-text px-6 py-2 rounded-lg transition-colors duration-200 font-inter mx-4"
+                >
+                  Book Consultation
+                </button>
+              )}
             </div>
           </div>
         )}

@@ -18,7 +18,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id="hero" className="relative h-screen overflow-hidden">
       <div
         ref={parallaxRef}
         className="absolute inset-0 z-0"
@@ -68,7 +68,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="bg-sage-100 hover:bg-sage-200 text-charcoal hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open('https://calendly.com/shohid-wpkt/30min', '_blank')}
             >
               Book a Free Consultation
             </Button>
