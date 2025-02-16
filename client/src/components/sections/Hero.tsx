@@ -23,7 +23,7 @@ export default function Hero() {
         ref={parallaxRef}
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           transform: "translateY(0)",
