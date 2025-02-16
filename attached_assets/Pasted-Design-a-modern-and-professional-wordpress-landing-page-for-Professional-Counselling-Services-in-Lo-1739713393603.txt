@@ -1,0 +1,26 @@
+Design a modern and professional wordpress landing page for "Professional Counselling Services in London." The page should be clean, welcoming, and user-friendly, in line with top counselling and therapy service websites. The style should be:
+
+Color Scheme: Use soft, calming colors such as pastel blues, greens, or neutrals (beige, off-white, soft grey) to create a sense of trust and relaxation.
+Typography: Choose a professional yet warm font (e.g., Lora, Open Sans, or Poppins) with clear headings and readable body text.
+Hero Section: A full-width background image of a serene setting (e.g., a peaceful office, nature scene, or a comforting therapy session). Include a headline like:
+"Compassionate & Confidential Counselling in London"
+"Find Support. Heal. Thrive."
+A subheading encouraging users to take action:
+"We provide expert therapy tailored to your needs. Book a free consultation today."
+A Call-to-Action (CTA) button: "Book a Consultation" (should be clearly visible).
+Navigation Bar: A simple, sticky menu with links to Home, Services, About, FAQs, Contact.
+Sections:
+About Us: A brief introduction about the counselling services, the therapist’s expertise, and their approach (CBT, person-centered, etc.).
+Services We Offer: A grid or card-style section listing different services such as:
+Anxiety & Stress Management
+Depression Therapy
+Relationship & Marriage Counselling
+Trauma & PTSD Support
+Testimonials Section: A carousel or card-style section with real or placeholder client feedback (use calming colors and quote icons).
+Why Choose Us? A bullet point list highlighting key benefits, e.g.:
+"Experienced & Accredited Therapists"
+"Safe & Confidential"
+"Online & In-Person Sessions Available"
+Contact Form & Map: A simple contact form with Name, Email, Message, Preferred Time for a Call, and an embedded Google Maps section for physical location.
+Footer: Include quick links, social media icons, privacy policy, and contact details.
+Ensure the design is mobile-responsive, fast-loading, and SEO-friendly. Use soft hover effects and smooth scrolling.
