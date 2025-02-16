@@ -1,44 +1,82 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxRef.current) {
+        const scrolled = window.scrollY;
+        parallaxRef.current.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center relative overflow-hidden">
-      <div 
+    <section className="relative h-screen overflow-hidden">
+      <div
+        ref={parallaxRef}
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          transform: "translateY(0)",
           filter: "brightness(0.7)",
         }}
       />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-2xl text-white"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Compassionate & Confidential Counselling in London
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Find Support. Heal. Thrive.
-          </p>
-          <p className="text-lg mb-8 text-gray-200">
-            We provide expert therapy tailored to your needs. Book a free consultation today.
-          </p>
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-white"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+
+      <div className="relative z-10 h-full flex items-center justify-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sage-50 inline-block mb-4 px-4 py-1 rounded-full bg-sage-900/10 backdrop-blur-sm font-inter"
           >
-            Book a Consultation
-          </Button>
-        </motion.div>
+            Professional Counselling Services in London
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+          >
+            Find Support. Heal. Thrive.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+          >
+            We provide expert therapy tailored to your needs. Take the first step towards a better tomorrow.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <Button
+              size="lg"
+              className="bg-sage-100 hover:bg-sage-200 text-charcoal hover:scale-105 transition-all duration-300"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Book a Free Consultation
+            </Button>
+          </motion.div>
+        </div>
       </div>
+
+      <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 }
