@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { insertContactMessageSchema } from "@shared/schema";
+import { z } from "zod";
 import { CheckCircle } from "lucide-react";
 import {
   Form,
@@ -26,10 +24,20 @@ const sessionInfo = [
   "Recommended minimum of 12 weeks for meaningful progress",
 ];
 
+// Define the contact form schema
+const contactFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+  preferredTime: z.string().min(1, "Preferred contact time is required"),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
 export default function Contact() {
   const { toast } = useToast();
-  const form = useForm({
-    resolver: zodResolver(insertContactMessageSchema),
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -38,25 +46,15 @@ export default function Contact() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: any) => {
-      await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent",
-        description: "We'll get back to you as soon as possible.",
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
+  const onSubmit = async (data: ContactFormValues) => {
+    // Placeholder submission handler until EmailJS is set up
+    console.log('Form submitted:', data);
+    toast({
+      title: "Message received",
+      description: "Email functionality will be implemented soon.",
+    });
+    form.reset();
+  };
 
   return (
     <section id="contact" className="py-20 bg-gray-50">
@@ -103,7 +101,7 @@ export default function Contact() {
 
           <div>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -167,9 +165,9 @@ export default function Contact() {
                 <Button
                   type="submit"
                   className="w-full"
-                  disabled={mutation.isPending}
+                  disabled={form.formState.isSubmitting}
                 >
-                  {mutation.isPending ? "Sending..." : "Send Message"}
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>
